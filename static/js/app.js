@@ -44,7 +44,7 @@ function runEnter() {
     // Prevent the page from refreshing
     d3.event.preventDefault();
 
-    // tbody.innerHTML = "";
+    tbody.HTML = "";
     
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
