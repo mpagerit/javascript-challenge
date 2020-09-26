@@ -74,14 +74,28 @@ function runEnter() {
     //   });
     var dateElement = d3.select("#datetime");
     var cityElement = d3.select("#city");
+    var stateElement = d3.select("#state");
+    var countryElement = d3.select("#country");
+    var shapeElement = d3.select("#shape");
 
     var dateValue = dateElement.property("value");
     var cityValue = cityElement.property("value");
+    var stateValue = stateElement.property("value");
+    var countryValue = countryElement.property("value");
+    var shapeValue = shapeElement.property("value");
 
     console.log(dateValue);
     console.log(cityValue);
+    console.log(stateValue);
+    console.log(countryValue);
+    console.log(shapeValue);
 
-    var filteredUFO = ufoSightings.filter(sighting => sighting.datetime === dateValue && sighting.city === cityValue);
+    var filteredUFO = ufoSightings.filter(
+      sighting => sighting.datetime === dateValue && 
+      sighting.city === cityValue &&
+      sighting.state === stateValue &&
+      sighting.country === countryValue &&
+      sighting.shape === shapeValue);
     console.log(filteredUFO);
 
     filteredUFO.forEach(function(ufoQuery) {
