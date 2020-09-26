@@ -32,11 +32,12 @@ ufoSightings.forEach(function(ufoReport) {
 var button = d3.select("#filter-btn");
 
 // Select the form
-var form = d3.select("form");
+var form = d3.select("#filters");
 
 // Create event handlers 
-button.on("click", runEnter);
 form.on("submit", runEnter);
+button.on("click", runEnter);
+
 
 // Complete the event handler function for the form
 function runEnter() {
@@ -47,43 +48,21 @@ function runEnter() {
     // clear the table
     tbody.html("");
     
-    // Select the input element and get the raw HTML node
-    // var inputElement = d3.select("#datetime");
-  
-    // console.log(inputElement);
-
-    // // Get the value property of the input element
-    // var inputValue = inputElement.property("value");
-  
-    // console.log(inputValue);
-  
-    // var filteredUFO = ufoSightings.filter(sighting => sighting.datetime === inputValue);
-  
-    // console.log(filteredUFO);
-
-    // filteredUFO.forEach(function(ufoQuery) {
-    //     // console.log(ufoReport);
-    //     var row = tbody.append("tr");
-    //     Object.entries(ufoQuery).forEach(function([key, value]) {
-    //         // output the data to the console before adding the data to the table
-    //     //   console.log(key, value);
-    //       // Append a cell to the row for each value in the ufoQuery object
-    //       var cell = row.append("td");
-    //       cell.text(value);
-    //     });
-    //   });
+    // Select each input element and get the raw HTML node
     var dateElement = d3.select("#datetime");
     var cityElement = d3.select("#city");
     var stateElement = d3.select("#state");
     var countryElement = d3.select("#country");
     var shapeElement = d3.select("#shape");
 
+    // Get the value property of each input element
     var dateValue = dateElement.property("value");
     var cityValue = cityElement.property("value");
     var stateValue = stateElement.property("value");
     var countryValue = countryElement.property("value");
     var shapeValue = shapeElement.property("value");
 
+    // print each element to console
     console.log(dateValue);
     console.log(cityValue);
     console.log(stateValue);
