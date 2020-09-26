@@ -48,28 +48,51 @@ function runEnter() {
     tbody.html("");
     
     // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
+    // var inputElement = d3.select("#datetime");
   
-    console.log(inputElement);
+    // console.log(inputElement);
 
-    // Get the value property of the input element
-    var inputValue = inputElement.property("value");
+    // // Get the value property of the input element
+    // var inputValue = inputElement.property("value");
   
-    console.log(inputValue);
+    // console.log(inputValue);
   
-    var filteredUFO = ufoSightings.filter(sighting => sighting.datetime === inputValue);
+    // var filteredUFO = ufoSightings.filter(sighting => sighting.datetime === inputValue);
   
+    // console.log(filteredUFO);
+
+    // filteredUFO.forEach(function(ufoQuery) {
+    //     // console.log(ufoReport);
+    //     var row = tbody.append("tr");
+    //     Object.entries(ufoQuery).forEach(function([key, value]) {
+    //         // output the data to the console before adding the data to the table
+    //     //   console.log(key, value);
+    //       // Append a cell to the row for each value in the ufoQuery object
+    //       var cell = row.append("td");
+    //       cell.text(value);
+    //     });
+    //   });
+    var dateElement = d3.select("#datetime");
+    var cityElement = d3.select("#city");
+
+    var dateValue = dateElement.property("value");
+    var cityValue = cityElement.property("value");
+
+    console.log(dateValue);
+    console.log(cityValue);
+
+    var filteredUFO = ufoSightings.filter(sighting => sighting.datetime === dateValue && sighting.city === cityValue);
     console.log(filteredUFO);
 
     filteredUFO.forEach(function(ufoQuery) {
         // console.log(ufoReport);
-        var row = tbody.append("tr");
-        Object.entries(ufoQuery).forEach(function([key, value]) {
-            // output the data to the console before adding the data to the table
-        //   console.log(key, value);
-          // Append a cell to the row for each value in the ufoQuery object
-          var cell = row.append("td");
-          cell.text(value);
-        });
+      var row = tbody.append("tr");
+      Object.entries(ufoQuery).forEach(function([key, value]) {
+        // output the data to the console before adding the data to the table
+        console.log(key, value);
+        // Append a cell to the row for each value in the ufoQuery object
+        var cell = row.append("td");
+        cell.text(value);
       });
+    });
 }  
